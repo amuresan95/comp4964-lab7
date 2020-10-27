@@ -5,8 +5,9 @@ services:
   
 language: python
 
-script:
-  - python -m pytest -v
-
-after_success:
-  - ./.travis/deploy_dockerhub.sh
+jobs:
+  include:
+    - stage: test
+      script: python -m pytest -v
+    - stage: build
+      script: ./.travis/deploy_dockerhub.sh
