@@ -11,3 +11,5 @@ jobs:
       script: python -m pytest -v
     - stage: build
       script: ./.travis/deploy_dockerhub.sh
+    - stage: deploy
+      script: ./.travis/deploy_heroku.sh
